@@ -91,8 +91,6 @@ ldap <- R6::R6Class("ldap",
   ),
   
   private = list(
-    host = NULL,
-    port = NULL,
     uri = NULL,
     base_dn = NULL,
     handle = NULL,
