@@ -9,8 +9,10 @@ ldap_init <- function(
   assert_character(host)
   assert_character(base_dn)
   assert_numeric_scalar(port)
-  
-  ldap_uri <- ldap_string(host, port)
+
+  proto <- if (port == 636) 'ldaps' else 'ldap'
+
+  ldap_uri <- ldap_string(proto, host, port)
   uri_check <- ldapr_url_parse(ldap_uri)
 
   private$host <- host
