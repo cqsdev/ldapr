@@ -95,7 +95,7 @@ ldap <- R6::R6Class("ldap",
     uri = NULL,
     base_dn = NULL,
     handle = NULL,
-    authenticated = F,
+    authenticated = FALSE,
     authenticated_user = NULL,
     authenticated_until = NULL
   )

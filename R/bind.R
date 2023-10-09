@@ -8,7 +8,7 @@ ldap_reset <- function(
   private,
   self
 ){
-  private$authenticated <- F
+  private$authenticated <- FALSE
   private$authenticated_user <- NULL
   private$authenticated_until <- NULL
   self
@@ -49,7 +49,7 @@ ldap_bind <- function(
   )
 
   # update self
-  private$authenticated <- T
+  private$authenticated <- TRUE
   private$authenticated_user <- user
   private$authenticated_until <- get_timeout(timeout)
   self
@@ -63,7 +63,7 @@ ldap_unbind <- function(
 ){
   ldapr_unbind(private$handle)
   # update self
-  private$authenticated <- F
+  private$authenticated <- FALSE
   private$authenticated_user <- NULL
   private$authenticated_until <- NULL
   self
