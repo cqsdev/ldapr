@@ -1,8 +1,8 @@
 # Initialize the LDAP object
 ldap_init <- function(
-  self, 
+  self,
   private,
-  host, 
+  host,
   base_dn,
   port = 389
 ){
