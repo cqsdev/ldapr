@@ -29,7 +29,6 @@ ldap <- R6::R6Class("ldap",
       port = 389
     ){
       ldap_init(
-        self,
         private,
         host,
         base_dn,
@@ -52,7 +51,6 @@ ldap <- R6::R6Class("ldap",
       timeout = 15
     ){
       ldap_bind(
-        self,
         private,
         user,
         pw,
@@ -87,7 +85,7 @@ ldap <- R6::R6Class("ldap",
     #' @examples
     #' ld$unbind()
     unbind = function(){
-      ldap_unbind(private, self)
+      ldap_unbind(private)
     }
   ),
 

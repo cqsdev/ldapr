@@ -1,33 +1,14 @@
-#' Reset LDAP authentication
-#'
-#' @param private Private list from R6 object
-#' @param self Self from R6 object
-#'
-#' @keywords internal
+# Reset LDAP authentication
 ldap_reset <- function(
-  private,
-  self
+  private
 ){
   private$authenticated <- FALSE
   private$authenticated_user <- NULL
   private$authenticated_until <- NULL
-  self
 }
 
-#' Simple bind
-#'
-#' Perform a simple LDAP bind operation
-#'
-#' @param self Self from R6 object
-#' @param private Private list from R6 object
-#' @param user User to authenticate
-#' @param pw Password to authenticate
-#' @param type Type of object to authenticate with - one of either `cn` or `uid`
-#' @param timeout Timeout for authentication
-#'
-#' @keywords internal
+# Perform a simple LDAP bind operation
 ldap_bind <- function(
-  self,
   private,
   user,
   pw,
@@ -35,7 +16,7 @@ ldap_bind <- function(
   timeout
 ){
   # reset the authentication
-  ldap_reset(private, self)
+  ldap_reset(private)
   type <- match.arg(type)
 
   # build the DN for binding
@@ -48,24 +29,16 @@ ldap_bind <- function(
     pw
   )
 
-  # update self
+  # update
   private$authenticated <- TRUE
   private$authenticated_user <- user
   private$authenticated_until <- get_timeout(timeout)
-  self
 }
-
 
 # unbind
 ldap_unbind <- function(
-    private,
-    self
+    private
 ){
   ldapr_unbind(private$handle)
-  # update self
-  private$authenticated <- FALSE
-  private$authenticated_user <- NULL
-  private$authenticated_until <- NULL
-  self
+  ldap_reset(private)
 }
-

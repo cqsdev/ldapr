@@ -1,9 +1,9 @@
 # search
 ldap_search <- function(
-  filter,
-  private
+  private,
+  filter
 ){
-  if(!private$authenticated){
+  if (!private$authenticated) {
     stop(
       paste0("No authentication to ", private$uri, ". Cannot perform search"),
       call. = FALSE

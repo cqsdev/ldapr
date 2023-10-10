@@ -1,6 +1,5 @@
 # Initialize the LDAP object
 ldap_init <- function(
-  self,
   private,
   host,
   base_dn,
@@ -18,5 +17,4 @@ ldap_init <- function(
   private$base_dn <- base_dn
   private$uri <- ldap_uri
   private$handle <- ldapr_init(ldap_uri)
-  self
 }
