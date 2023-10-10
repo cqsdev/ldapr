@@ -1,7 +1,7 @@
 Package: ldapr
 Type: Package
 Title: An R implementation of LDAP
-Version: 0.0.2
+Version: 0.1.0
 Date: 2022-09-24
 Authors@R: person("Liam", "Gilbey", email = "liam.gilbey@gmail.com",
   role = c("aut", "cre"))
@@ -12,7 +12,7 @@ Imports: Rcpp (>= 1.0.1),
   R6
 LinkingTo: Rcpp
 RoxygenNote: 7.2.1
-SystemRequirements: libldap-2.4-2 (deb)
+SystemRequirements: libldap-dev (debian/ubuntu)
 URL: https://github.com/liamgilbey/ldapr,
     https://liamgilbey.github.io/ldapr/
 BugReports: https://github.com/liamgilbey/ldapr/issues  
