@@ -1,11 +1,11 @@
 #include "ldapr.h"
 
 //' Validate an LDAP URL.
-//' 
+//'
 //' This is a fairly simple version of validation, simply checking whether the URL string starts with \code{ldap://}
 //' @keywords internal
 //' @param ldap_uri The URI you wish to validate
-//' 
+//'
 //' @export
 // [[Rcpp::export]]
 int ldapr_is_ldap_url(

@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' Initialize an LDAP connection handle
-#' 
+#'
 #' @param ldap_uri A valid LDAP uri string
 #' @keywords internal
 #' @export
@@ -15,11 +15,11 @@ ldapr_bind_s <- function(l, bind_dn, bind_pw) {
 }
 
 #' Validate an LDAP URL.
-#' 
+#'
 #' This is a fairly simple version of validation, simply checking whether the URL string starts with \code{ldap://}
 #' @keywords internal
 #' @param ldap_uri The URI you wish to validate
-#' 
+#'
 #' @export
 ldapr_is_ldap_url <- function(ldap_uri) {
     .Call(`_ldapr_ldapr_is_ldap_url`, ldap_uri)
@@ -33,14 +33,13 @@ ldapr_unbind <- function(l) {
     .Call(`_ldapr_ldapr_unbind`, l)
 }
 
-#' Parse an LDAP URL. 
-#' 
+#' Parse an LDAP URL.
+#'
 #' This function performs robust URL validation by attempting to break the URL into the component pieces.
 #' @keywords internal
 #' @param ldap_uri The URL to validate
-#' 
+#'
 #' @export
 ldapr_url_parse <- function(ldap_uri) {
     .Call(`_ldapr_ldapr_url_parse`, ldap_uri)
 }
-

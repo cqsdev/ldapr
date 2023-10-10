@@ -1,11 +1,11 @@
 #include "ldapr.h"
 
-//' Parse an LDAP URL. 
-//' 
+//' Parse an LDAP URL.
+//'
 //' This function performs robust URL validation by attempting to break the URL into the component pieces.
 //' @keywords internal
 //' @param ldap_uri The URL to validate
-//' 
+//'
 //' @export
 // [[Rcpp::export]]
 int ldapr_url_parse(

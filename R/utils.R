@@ -19,7 +19,6 @@ get_timeout <- function(timeout_mins = 15){
   Sys.time() + (60 * timeout_mins)
 }
 
-
 # assertions
 assert_generic <- function(x, f){
   stopifnot(
@@ -43,5 +42,3 @@ assert_numeric_scalar <- function(x){
     !is.na(x)
   )
 }
-
-

@@ -1,7 +1,7 @@
 #include "ldapr.h"
 
 //' Initialize an LDAP connection handle
-//' 
+//'
 //' @param ldap_uri A valid LDAP uri string
 //' @keywords internal
 //' @export
