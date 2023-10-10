@@ -23,17 +23,8 @@ ldap <- R6::R6Class("ldap",
     #' or 636 for LDAP over SSL
     #' @examples
     #' ld <- ldap$new("zflexldap.com", "ou=users,ou=guests,dc=zflexsoftware,dc=com", 389)
-    initialize = function(
-      host,
-      base_dn,
-      port = 389
-    ){
-      ldap_init(
-        private,
-        host,
-        base_dn,
-        port
-      )
+    initialize = function(host, base_dn, port = 389) {
+      ldap_init(private, host, base_dn, port)
     },
 
     #' @description
@@ -44,48 +35,40 @@ ldap <- R6::R6Class("ldap",
     #' @param timeout The timeout required for authentication
     #' @examples
     #' ld$bind("guest1", "guest1password", "uid")
-    bind = function(
-      user,
-      pw,
-      type,
-      timeout = 15
-    ){
-      ldap_bind(
-        private,
-        user,
-        pw,
-        type,
-        timeout
-      )
+    bind = function(user, pw, type, timeout = 15) {
+      ldap_bind(private, user, pw, type, timeout)
+      invisible(self)
     },
 
     #' @description Get the private values from the R6 class
     #' @examples
     #' ld$get()
-    get = function(){
+    get = function() {
       as.list(private)
     },
 
     #' @description Custom print method for the new R6 class
     #' @examples
     #' ld
-    print = function(){
+    print = function() {
       ldap_print(private)
+      invisible(self)
     },
 
     #' @description Perform a search against an authenicated LDAP server
     #' @param filter The search filter to apply. Must be a valid LDAP search string
     #' @examples
     #' ld$search("(uid=guest2)")
-    search = function(filter){
-      ldap_search(filter, private)
+    search = function(filter) {
+      ldap_search(private, filter)
     },
 
     #' @description Unbind from an authenticated LDAP server
     #' @examples
     #' ld$unbind()
-    unbind = function(){
+    unbind = function() {
       ldap_unbind(private)
+      invisible(self)
     }
   ),
 
