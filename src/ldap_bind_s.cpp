@@ -5,7 +5,7 @@ int ldapr_bind_s(SEXP l,
                  SEXP bind_dn,
                  SEXP bind_pw
 ) {
-  int version;
+  int version, tls_allow;
   LDAPMessage *e, *ldap_result;
   char *dn;
   // get the external pointer back
@@ -18,6 +18,8 @@ int ldapr_bind_s(SEXP l,
   // set options
   version = LDAP_VERSION3;
   ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);
+  tls_allow = LDAP_OPT_X_TLS_ALLOW;
+  ldap_set_option(ld, LDAP_OPT_X_TLS_REQUIRE_CERT, &tls_allow);
 
   // perform a simple bind
   int result = ldap_simple_bind_s(ld,
